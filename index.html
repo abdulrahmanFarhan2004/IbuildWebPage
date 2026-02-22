@@ -1130,41 +1130,79 @@
       border-color: var(--jo)
     }
 
-    /* TEAM */
-    .team-grid {
+    /* TEAM — Leadership (Large Cards) */
+    .team-leaders {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 18px;
-      margin-top: 56px
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-top: 56px;
+      max-width: 760px;
+      margin-left: auto;
+      margin-right: auto
     }
 
-    .member-card {
-      padding: 30px 22px 26px;
+    .leader-card {
+      padding: 40px 32px 36px;
       text-align: center;
-      border-radius: 20px
+      border-radius: 24px;
+      position: relative;
+      overflow: hidden
     }
 
-    .member-card:hover {
-      transform: translateY(-6px)
-    }
-
-    .member-avatar {
-      width: 68px;
-      height: 68px;
+    .leader-card::after {
+      content: '';
+      position: absolute;
+      top: -60px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 260px;
+      height: 260px;
       border-radius: 50%;
-      margin: 0 auto 16px;
+      background: var(--leader-glow, rgba(79, 195, 247, .08));
+      filter: blur(60px);
+      pointer-events: none;
+      z-index: 0
+    }
+
+    .leader-card>* {
+      position: relative;
+      z-index: 1
+    }
+
+    .leader-card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(255, 107, 53, .3)
+    }
+
+    .leader-avatar {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      margin: 0 auto 20px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.2rem;
+      font-size: 1.6rem;
       font-weight: 800;
       font-family: 'JetBrains Mono', monospace;
-      border: 2px solid;
-      box-shadow: 0 0 20px rgba(0, 0, 0, .5)
+      border: 3px solid;
+      box-shadow: 0 0 30px rgba(0, 0, 0, .5), 0 0 20px var(--leader-glow, rgba(79, 195, 247, .2))
     }
 
-    .member-name {
-      font-size: .95rem;
+    .leader-rank {
+      display: inline-block;
+      padding: 4px 14px;
+      border-radius: 9999px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: .62rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      margin-bottom: 14px
+    }
+
+    .leader-name {
+      font-size: 1.2rem;
       font-weight: 700;
       color: #fff;
       margin-bottom: 6px;
@@ -1172,30 +1210,97 @@
       letter-spacing: .05em
     }
 
-    .member-role {
-      font-size: .68rem;
+    .leader-role {
+      font-size: .72rem;
       color: var(--tm);
       font-family: 'JetBrains Mono', monospace;
-      margin-bottom: 14px;
+      margin-bottom: 16px;
       letter-spacing: .06em
     }
 
-    .member-tags {
+    .leader-tags {
       display: flex;
       gap: 6px;
       justify-content: center;
       flex-wrap: wrap
     }
 
-    .member-tag {
-      padding: 3px 9px;
-      border-radius: 5px;
+    .leader-tag {
+      padding: 4px 11px;
+      border-radius: 6px;
       font-family: 'JetBrains Mono', monospace;
-      font-size: .56rem;
-      letter-spacing: .05em;
-      background: rgba(255, 107, 53, .08);
-      border: 1px solid rgba(255, 107, 53, .18);
-      color: var(--jo2)
+      font-size: .6rem;
+      letter-spacing: .05em
+    }
+
+    /* Team — Members (Small Cards) */
+    .team-members-label {
+      text-align: center;
+      margin-top: 52px;
+      margin-bottom: 24px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: .68rem;
+      color: var(--tm);
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      opacity: .6
+    }
+
+    .team-members-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 12px;
+      max-width: 860px;
+      margin: 0 auto
+    }
+
+    .mini-member-card {
+      background: var(--gb);
+      backdrop-filter: blur(18px);
+      border: 1px solid var(--gbb);
+      border-radius: 14px;
+      padding: 20px 14px 18px;
+      text-align: center;
+      transition: all .35s var(--e1);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, .3)
+    }
+
+    .mini-member-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(255, 255, 255, .15);
+      box-shadow: 0 12px 36px rgba(0, 0, 0, .5)
+    }
+
+    .mini-avatar {
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      margin: 0 auto 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: .85rem;
+      font-weight: 700;
+      font-family: 'JetBrains Mono', monospace;
+      border: 2px solid;
+      box-shadow: 0 0 12px rgba(0, 0, 0, .4)
+    }
+
+    .mini-name {
+      font-size: .82rem;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 4px;
+      font-family: 'Cinzel', serif;
+      letter-spacing: .03em;
+      line-height: 1.3
+    }
+
+    .mini-role {
+      font-size: .58rem;
+      color: var(--tf);
+      font-family: 'JetBrains Mono', monospace;
+      letter-spacing: .06em
     }
 
     /* OOP VIDEO CARDS */
@@ -1639,8 +1744,12 @@
         grid-template-columns: 1fr
       }
 
-      .team-grid {
-        grid-template-columns: 1fr 1fr
+      .team-leaders {
+        grid-template-columns: 1fr
+      }
+
+      .team-members-grid {
+        grid-template-columns: repeat(auto-fill, minmax(130px, 1fr))
       }
 
       .footer-grid {
@@ -1909,7 +2018,7 @@
           <div class="project-icon">🏦</div><span class="project-status">مكتمل ✓</span>
         </div>
         <div class="project-h">Banking System CLI</div>
-        <p class="project-p">نظام مصرفي كامل عبر سطر الأوامر يشمل إدارة الحسابات، التحويلات، وسجلات المعاملات بمبادئ OOP
+        <p class="project-p">نظام مصرفي كامل عبر سطر ا��أوامر يشمل إدارة الحسابات، التحويلات، وسجلات المعاملات بمبادئ OOP
           صارمة.</p>
         <div class="project-stack"><span class="stack-tag">Java 17</span><span class="stack-tag">Collections</span><span
             class="stack-tag">File I/O</span><span class="stack-tag">OOP</span></div>
@@ -1944,95 +2053,6 @@
         <div class="project-stack"><span class="stack-tag">Java</span><span class="stack-tag">Discord API</span><span
             class="stack-tag">Spring</span><span class="stack-tag">H2 DB</span></div>
       </div>
-    </div>
-  </section>
-
-  <!-- TEAM -->
-  <section class="section" id="team" style="padding-top:20px">
-    <div class="chip chip-purple reveal">// المجلس التأسيسي</div>
-    <h2 class="section-h reveal">الهيئة <span class="hl-cyan">الإدارية</span></h2>
-    <div class="team-grid">
-      <a href="https://abdulrahmanfarhan2004.github.io/protofolio/">
-      <div class="member-card card reveal">
-        <div class="member-avatar"
-          style="background:rgba(79,195,247,.1);border-color:rgba(79,195,247,.2);color:var(--blue)">AF</div>
-        <div class="member-name">عبدالرحمن فرحان</div>
-        <div class="member-role">President & Founder</div>
-        <div class="member-tags"><span class="member-tag">Java Expert</span><span class="member-tag">Enterprise
-            Arch</span></div>
-      </div>
-      </a>
-      <div class="member-card card reveal reveal-d1">
-        <div class="member-avatar"
-          style="background:rgba(255,107,53,.1);border-color:rgba(255,107,53,.2);color:var(--jo)">HR</div>
-        <div class="member-name">حمزة رباع</div>
-        <div class="member-role">Technical Lead</div>
-        <div class="member-tags"><span class="member-tag">Project Manager</span><span
-            class="member-tag">Optimization</span>
-        </div>
-      </div>
-      <div class="member-card card reveal reveal-d2">
-        <div class="member-avatar"
-          style="background:rgba(155,89,255,.1);border-color:rgba(155,89,255,.2);color:var(--pur)">AR</div>
-        <div class="member-name">عبدالله رجب</div>
-        <div class="member-role">Member</div>
-        <div class="member-tags"></div>
-      </div>
-      <div class="member-card card reveal reveal-d3">
-        <div class="member-avatar"
-          style="background:rgba(0,212,170,.1);border-color:rgba(0,212,170,.2);color:var(--teal)">JY</div>
-        <div class="member-name">جنى ينال</div>
-        <div class="member-role">Member</div>
-        <div class="member-tags"></div>
-      </div>
-      <div class="member-card card reveal">
-        <div class="member-avatar"
-          style="background:rgba(0,212,170,.1);border-color:rgba(0,212,170,.2);color:var(--teal)">TO</div>
-        <div class="member-name">طه عليان</div>
-        <div class="member-role">Member</div>
-        <div class="member-tags"></div>
-      </div>
-      <div class="member-card card reveal reveal-d1">
-        <div class="member-avatar"
-          style="background:rgba(255,60,172,.1);border-color:rgba(255,60,172,.2);color:var(--pink)">Mo</div>
-        <div class="member-name">مصطفى</div>
-        <div class="member-role">Member</div>
-        <div class="member-tags"></div>
-      </div>
-      <div class="member-card card reveal reveal-d2">
-        <div class="member-avatar" style="background:rgba(255,82,82,.1);border-color:rgba(255,82,82,.2);color:#ff5252">
-          RA</div>
-        <div class="member-name">راكان القهيوي</div>
-        <div class="member-role">Member</div>
-        <div class="member-tags"></div>
-      </div>
-      <div class="member-card card reveal reveal-d3">
-        <div class="member-avatar"
-          style="background:rgba(64,196,255,.1);border-color:rgba(64,196,255,.2);color:#40c4ff">MN</div>
-        <div class="member-name">محمود النوباني</div>
-        <div class="member-role">Member</div>
-        <div class="member-tags"></div>
-      </div>
-    <div class="member-card card reveal">
-      <div class="member-avatar"
-        style="background:rgba(255,179,71,.1);border-color:rgba(255,179,71,.2);color:var(--jo3)">AA</div>
-      <div class="member-name">عدنان عياد</div>
-      <div class="member-role">Member</div>
-      <div class="member-tags"></div>
-    </div>
-    <div class="member-card card reveal reveal-d1">
-      <div class="member-avatar"
-        style="background:rgba(79,195,247,.1);border-color:rgba(79,195,247,.2);color:var(--blue)">TQ</div>
-      <div class="member-name">طارق</div>
-      <div class="member-role">Member</div>
-      <div class="member-tags"></div>
-    </div>
-    <div class="member-card card reveal reveal-d2">
-      <div class="member-avatar"
-        style="background:rgba(155,89,255,.1);border-color:rgba(155,89,255,.2);color:var(--pur)">MK</div>
-      <div class="member-name">معتز خواجة</div>
-      <div class="member-role">Member</div>
-      <div class="member-tags"></div>
     </div>
   </section>
 
@@ -2141,7 +2161,7 @@
         <div class="vid-body">
           <div class="vid-lesson-label">// Lesson 05</div>
           <div class="vid-title">الوراثة وتعدد الأشكال</div>
-          <div class="vid-desc">تجنب تكرار الكود عبر الوراثة، وإكساب الكائنات مرونة عالية عبر Overload و Override.</div>
+          <div class="vid-desc">تجنب تكرار الكود عبر ال��راثة، وإكساب الكائنات مرونة عالية عبر Overload و Override.</div>
           <div class="vid-watch-row"><svg viewBox="0 0 24 24">
               <path d="M8 5v14l11-7z" />
             </svg>شاهد على YouTube ←</div>
@@ -2167,6 +2187,114 @@
             </svg>شاهد على YouTube ←</div>
         </div>
       </a>
+    </div>
+  </section>
+
+  <!-- TEAM (moved to bottom, before Join) -->
+  <section class="section" id="team" style="padding-top:20px">
+    <div style="text-align:center">
+      <div class="chip chip-purple reveal">// المجلس التأسيسي</div>
+      <h2 class="section-h reveal">الهيئة <span class="hl-cyan">الإدارية</span></h2>
+    </div>
+
+    <!-- Leadership — Large Cards -->
+    <div class="team-leaders">
+      <!-- President -->
+      <a href="https://abdulrahmanfarhan2004.github.io/protofolio/" style="text-decoration:none">
+        <div class="leader-card card reveal" style="--leader-glow:rgba(79,195,247,.15)">
+          <div class="leader-avatar"
+            style="background:rgba(79,195,247,.1);border-color:rgba(79,195,247,.35);color:var(--blue)">AF</div>
+          <div class="leader-rank"
+            style="background:rgba(79,195,247,.12);border:1px solid rgba(79,195,247,.3);color:var(--blue)">👑 رئيس
+            النادي</div>
+          <div class="leader-name">عبدالرحمن فرحان</div>
+          <div class="leader-role">President & Founder</div>
+          <div class="leader-tags">
+            <span class="leader-tag"
+              style="background:rgba(79,195,247,.1);border:1px solid rgba(79,195,247,.2);color:var(--blue)">Java
+              Expert</span>
+            <span class="leader-tag"
+              style="background:rgba(79,195,247,.1);border:1px solid rgba(79,195,247,.2);color:var(--blue)">Enterprise
+              Arch</span>
+          </div>
+        </div>
+      </a>
+      <!-- Vice President -->
+      <div class="leader-card card reveal reveal-d1" style="--leader-glow:rgba(255,107,53,.12)">
+        <div class="leader-avatar"
+          style="background:rgba(255,107,53,.1);border-color:rgba(255,107,53,.35);color:var(--jo)">HR</div>
+        <div class="leader-rank"
+          style="background:rgba(255,107,53,.12);border:1px solid rgba(255,107,53,.3);color:var(--jo)">⭐ نائب الرئيس
+        </div>
+        <div class="leader-name">حمزة رباع</div>
+        <div class="leader-role">Vice President & Technical Lead</div>
+        <div class="leader-tags">
+          <span class="leader-tag"
+            style="background:rgba(255,107,53,.1);border:1px solid rgba(255,107,53,.2);color:var(--jo2)">Project
+            Manager</span>
+          <span class="leader-tag"
+            style="background:rgba(255,107,53,.1);border:1px solid rgba(255,107,53,.2);color:var(--jo2)">Optimization</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Members — Smaller Cards -->
+    <div class="team-members-label reveal">— المنظمين —</div>
+    <div class="team-members-grid">
+      <div class="mini-member-card reveal">
+        <div class="mini-avatar"
+          style="background:rgba(155,89,255,.1);border-color:rgba(155,89,255,.2);color:var(--pur)">AR</div>
+        <div class="mini-name">عبدالله رجب</div>
+        <div class="mini-role">Member</div>
+      </div>
+      <div class="mini-member-card reveal reveal-d1">
+        <div class="mini-avatar"
+          style="background:rgba(0,212,170,.1);border-color:rgba(0,212,170,.2);color:var(--teal)">JY</div>
+        <div class="mini-name">جنى ينال</div>
+        <div class="mini-role">Member</div>
+      </div>
+      <div class="mini-member-card reveal reveal-d2">
+        <div class="mini-avatar"
+          style="background:rgba(0,212,170,.1);border-color:rgba(0,212,170,.2);color:var(--teal)">TO</div>
+        <div class="mini-name">طه عليان</div>
+        <div class="mini-role">Member</div>
+      </div>
+      <div class="mini-member-card reveal reveal-d3">
+        <div class="mini-avatar"
+          style="background:rgba(255,60,172,.1);border-color:rgba(255,60,172,.2);color:var(--pink)">Mo</div>
+        <div class="mini-name">مصطفى</div>
+        <div class="mini-role">Member</div>
+      </div>
+      <div class="mini-member-card reveal">
+        <div class="mini-avatar" style="background:rgba(255,82,82,.1);border-color:rgba(255,82,82,.2);color:#ff5252">
+          RA</div>
+        <div class="mini-name">راكان القهيوي</div>
+        <div class="mini-role">Member</div>
+      </div>
+      <div class="mini-member-card reveal reveal-d1">
+        <div class="mini-avatar"
+          style="background:rgba(64,196,255,.1);border-color:rgba(64,196,255,.2);color:#40c4ff">MN</div>
+        <div class="mini-name">محمود النوباني</div>
+        <div class="mini-role">Member</div>
+      </div>
+      <div class="mini-member-card reveal reveal-d2">
+        <div class="mini-avatar"
+          style="background:rgba(255,179,71,.1);border-color:rgba(255,179,71,.2);color:var(--jo3)">AA</div>
+        <div class="mini-name">عدنان عياد</div>
+        <div class="mini-role">Member</div>
+      </div>
+      <div class="mini-member-card reveal reveal-d3">
+        <div class="mini-avatar"
+          style="background:rgba(79,195,247,.1);border-color:rgba(79,195,247,.2);color:var(--blue)">TQ</div>
+        <div class="mini-name">طارق</div>
+        <div class="mini-role">Member</div>
+      </div>
+      <div class="mini-member-card reveal">
+        <div class="mini-avatar"
+          style="background:rgba(155,89,255,.1);border-color:rgba(155,89,255,.2);color:var(--pur)">MK</div>
+        <div class="mini-name">معتز خواجة</div>
+        <div class="mini-role">Member</div>
+      </div>
     </div>
   </section>
 
@@ -2235,7 +2363,7 @@
     let mx = 0, my = 0, rx = 0, ry = 0;
     document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; dot.style.left = mx + 'px'; dot.style.top = my + 'px' });
     (function tick() { rx += (mx - rx) * .12; ry += (my - ry) * .12; ring.style.left = rx + 'px'; ring.style.top = ry + 'px'; requestAnimationFrame(tick) })();
-    document.querySelectorAll('a,button,.card,.vid-card').forEach(el => {
+    document.querySelectorAll('a,button,.card,.vid-card,.leader-card,.mini-member-card').forEach(el => {
       el.addEventListener('mouseenter', () => document.body.classList.add('ch'));
       el.addEventListener('mouseleave', () => document.body.classList.remove('ch'));
     });
