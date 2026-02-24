@@ -1793,8 +1793,6 @@
       <li><a href="#activities">Activities</a></li>
       <li><a href="#projects">Projects</a></li>
       <li><a href="#team">Team</a></li>
-          <li><a href="ch1.html">ch1</a></li>
-          <li><a href="ch2.html">ch2</a></li>
     </ul>
     <div class="nav-right"><a href="#join" class="btn-nav">انضم إلينا →</a></div>
   </nav>
@@ -2060,8 +2058,8 @@
 
   <!-- OOP DOCS -->
   <section class="section" id="oop-docs" style="padding-top:20px">
-    <div class="chip chip-cyan reveal">// توثيق أكاديمي</div>
-    <h2 class="section-h reveal">المرحلة <span class="hl-cyan">التأسيسية</span></h2>
+    <div class="chip chip-cyan reveal">// Object Oriented Programming</div>
+    <h2 class="section-h reveal">Object Oriented Programming <span class="hl-cyan">as it should be</span></h2>
     <p class="section-p reveal" style="max-width:620px;margin:0 auto 56px">ملخص شامل للإنجازات والمفاهيم التي تم تغطيتها
       لبناء أساس هندسي متين في لغة جافا، يمهد لبناء أنظمة احترافية.</p>
 
@@ -2192,6 +2190,289 @@
     </div>
   </section>
 
+  <!-- SERVLETS & JSP SECTION -->
+  <section class="section" id="servlets-jsp" style="padding-top:20px">
+    <div class="chip chip-orange reveal">// Web Development with Java</div>
+    <h2 class="section-h reveal">Servlets and Java Server Pages <span class="hl-orange">JSP</span></h2>
+    <p class="section-p reveal" style="max-width:620px;margin:0 auto 56px">تعلّم بناء تطبيقات الويب بلغة Java باستخدام Servlets و JSP — من أساسيات HTTP إلى بناء تطبيقات ديناميكية كاملة.</p>
+
+    <style>
+      .jsp-lessons-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 18px;
+        max-width: 1100px;
+        margin: 0 auto;
+      }
+      .jsp-lesson-card {
+        display: flex;
+        align-items: center;
+        gap: 18px;
+        background: var(--gb);
+        border: 1px solid var(--gbb);
+        border-radius: 16px;
+        padding: 20px 22px;
+        text-decoration: none;
+        color: inherit;
+        transition: all .3s var(--e1);
+        position: relative;
+        overflow: hidden;
+      }
+      .jsp-lesson-card::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        border-radius: 16px;
+        background: linear-gradient(135deg, rgba(255,107,53,.06), rgba(155,89,255,.04));
+        opacity: 0;
+        transition: opacity .3s;
+      }
+      .jsp-lesson-card.active {
+        border-color: rgba(255,107,53,.35);
+        background: rgba(255,107,53,.06);
+        cursor: pointer;
+      }
+      .jsp-lesson-card.active:hover {
+        border-color: rgba(255,107,53,.6);
+        transform: translateY(-3px);
+        box-shadow: 0 12px 36px rgba(255,107,53,.18);
+      }
+      .jsp-lesson-card.active:hover::before { opacity: 1; }
+      .jsp-lesson-card.locked {
+        opacity: .5;
+        cursor: default;
+      }
+      .jsp-num {
+        flex-shrink: 0;
+        width: 48px;
+        height: 48px;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: 'JetBrains Mono', monospace;
+        font-weight: 800;
+        font-size: .85rem;
+        background: rgba(255,107,53,.12);
+        border: 1px solid rgba(255,107,53,.25);
+        color: var(--jo);
+      }
+      .jsp-lesson-card.locked .jsp-num {
+        background: rgba(255,255,255,.05);
+        border-color: rgba(255,255,255,.08);
+        color: var(--tf);
+      }
+      .jsp-info { flex: 1; min-width: 0; }
+      .jsp-label {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: .62rem;
+        color: var(--jo2);
+        letter-spacing: .1em;
+        margin-bottom: 4px;
+      }
+      .jsp-lesson-card.locked .jsp-label { color: var(--tf); }
+      .jsp-title {
+        font-family: 'Inter', sans-serif;
+        font-weight: 700;
+        font-size: .88rem;
+        color: #fff;
+        margin-bottom: 3px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      .jsp-lesson-card.locked .jsp-title { color: var(--tm); }
+      .jsp-sub {
+        font-size: .72rem;
+        color: var(--tm);
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      .jsp-arrow {
+        flex-shrink: 0;
+        font-size: 1.1rem;
+        color: var(--jo);
+        transition: transform .25s;
+      }
+      .jsp-lesson-card.active:hover .jsp-arrow { transform: translateX(4px); }
+      .jsp-lock {
+        flex-shrink: 0;
+        font-size: .9rem;
+        color: var(--tf);
+      }
+      .jsp-badge-soon {
+        flex-shrink: 0;
+        font-size: .6rem;
+        font-family: 'JetBrains Mono', monospace;
+        padding: 3px 9px;
+        border-radius: 9999px;
+        background: rgba(255,255,255,.05);
+        border: 1px solid rgba(255,255,255,.08);
+        color: var(--tf);
+        letter-spacing: .06em;
+      }
+    </style>
+
+    <div class="jsp-lessons-grid">
+
+      <!-- Lesson 01 — ACTIVE -->
+      <a class="jsp-lesson-card active reveal" href="ch1.html">
+        <div class="jsp-num">01</div>
+        <div class="jsp-info">
+          <div class="jsp-label">// Lesson 01</div>
+          <div class="jsp-title">Web Fundamentals</div>
+          <div class="jsp-sub">Why use Servlets &amp; JSPs: an introduction</div>
+        </div>
+        <span class="jsp-arrow">→</span>
+      </a>
+
+      <!-- Lesson 02 — ACTIVE -->
+      <a class="jsp-lesson-card active reveal reveal-d1" href="ch2.html">
+        <div class="jsp-num">02</div>
+        <div class="jsp-info">
+          <div class="jsp-label">// Lesson 02</div>
+          <div class="jsp-title">Web Architecture</div>
+          <div class="jsp-sub">Web App Architecture: high-level overview</div>
+        </div>
+        <span class="jsp-arrow">→</span>
+      </a>
+
+      <!-- Lesson 03 — LOCKED -->
+      <div class="jsp-lesson-card locked reveal reveal-d2">
+        <div class="jsp-num">03</div>
+        <div class="jsp-info">
+          <div class="jsp-label">// Lesson 03</div>
+          <div class="jsp-title">Mini MVC Tutorial</div>
+          <div class="jsp-sub">hands-on MVC</div>
+        </div>
+        <span class="jsp-badge-soon">قريباً</span>
+      </div>
+
+      <!-- Lesson 04 — LOCKED -->
+      <div class="jsp-lesson-card locked reveal">
+        <div class="jsp-num">04</div>
+        <div class="jsp-info">
+          <div class="jsp-label">// Lesson 04</div>
+          <div class="jsp-title">Being a Servlet</div>
+          <div class="jsp-sub">request AND response</div>
+        </div>
+        <span class="jsp-badge-soon">قريباً</span>
+      </div>
+
+      <!-- Lesson 05 — LOCKED -->
+      <div class="jsp-lesson-card locked reveal reveal-d1">
+        <div class="jsp-num">05</div>
+        <div class="jsp-info">
+          <div class="jsp-label">// Lesson 05</div>
+          <div class="jsp-title">Being a Web App</div>
+          <div class="jsp-sub">attributes and listeners</div>
+        </div>
+        <span class="jsp-badge-soon">قريباً</span>
+      </div>
+
+      <!-- Lesson 06 — LOCKED -->
+      <div class="jsp-lesson-card locked reveal reveal-d2">
+        <div class="jsp-num">06</div>
+        <div class="jsp-info">
+          <div class="jsp-label">// Lesson 06</div>
+          <div class="jsp-title">Conversational State</div>
+          <div class="jsp-sub">session management</div>
+        </div>
+        <span class="jsp-badge-soon">قريباً</span>
+      </div>
+
+      <!-- Lesson 07 — LOCKED -->
+      <div class="jsp-lesson-card locked reveal">
+        <div class="jsp-num">07</div>
+        <div class="jsp-info">
+          <div class="jsp-label">// Lesson 07</div>
+          <div class="jsp-title">Being a JSP</div>
+          <div class="jsp-sub">using JSP</div>
+        </div>
+        <span class="jsp-badge-soon">قريباً</span>
+      </div>
+
+      <!-- Lesson 08 — LOCKED -->
+      <div class="jsp-lesson-card locked reveal reveal-d1">
+        <div class="jsp-num">08</div>
+        <div class="jsp-info">
+          <div class="jsp-label">// Lesson 08</div>
+          <div class="jsp-title">Script-free Pages</div>
+          <div class="jsp-sub">scriptless JSP</div>
+        </div>
+        <span class="jsp-badge-soon">قريباً</span>
+      </div>
+
+      <!-- Lesson 09 — LOCKED -->
+      <div class="jsp-lesson-card locked reveal reveal-d2">
+        <div class="jsp-num">09</div>
+        <div class="jsp-info">
+          <div class="jsp-label">// Lesson 09</div>
+          <div class="jsp-title">Custom Tags are Powerful</div>
+          <div class="jsp-sub">using JSTL</div>
+        </div>
+        <span class="jsp-badge-soon">قريباً</span>
+      </div>
+
+      <!-- Lesson 10 — LOCKED -->
+      <div class="jsp-lesson-card locked reveal">
+        <div class="jsp-num">10</div>
+        <div class="jsp-info">
+          <div class="jsp-label">// Lesson 10</div>
+          <div class="jsp-title">When JSTL is not Enough</div>
+          <div class="jsp-sub">custom tag development</div>
+        </div>
+        <span class="jsp-badge-soon">قريباً</span>
+      </div>
+
+      <!-- Lesson 11 — LOCKED -->
+      <div class="jsp-lesson-card locked reveal reveal-d1">
+        <div class="jsp-num">11</div>
+        <div class="jsp-info">
+          <div class="jsp-label">// Lesson 11</div>
+          <div class="jsp-title">Deploying your Web App</div>
+          <div class="jsp-sub">web app deployment</div>
+        </div>
+        <span class="jsp-badge-soon">قريباً</span>
+      </div>
+
+      <!-- Lesson 12 — LOCKED -->
+      <div class="jsp-lesson-card locked reveal reveal-d2">
+        <div class="jsp-num">12</div>
+        <div class="jsp-info">
+          <div class="jsp-label">// Lesson 12</div>
+          <div class="jsp-title">Keep it Secret, Keep it Safe</div>
+          <div class="jsp-sub">web app security</div>
+        </div>
+        <span class="jsp-badge-soon">قريباً</span>
+      </div>
+
+      <!-- Lesson 13 — LOCKED -->
+      <div class="jsp-lesson-card locked reveal">
+        <div class="jsp-num">13</div>
+        <div class="jsp-info">
+          <div class="jsp-label">// Lesson 13</div>
+          <div class="jsp-title">The Power of Filters</div>
+          <div class="jsp-sub">wrappers and filters</div>
+        </div>
+        <span class="jsp-badge-soon">قريباً</span>
+      </div>
+
+      <!-- Lesson 14 — LOCKED -->
+      <div class="jsp-lesson-card locked reveal reveal-d1">
+        <div class="jsp-num">14</div>
+        <div class="jsp-info">
+          <div class="jsp-label">// Lesson 14</div>
+          <div class="jsp-title">Enterprise Design Patterns</div>
+          <div class="jsp-sub">patterns and struts</div>
+        </div>
+        <span class="jsp-badge-soon">قريباً</span>
+      </div>
+
+    </div>
+  </section>
+
   <!-- TEAM (moved to bottom, before Join) -->
   <section class="section" id="team" style="padding-top:20px">
     <div style="text-align:center">
@@ -2200,28 +2481,51 @@
     </div>
 
     <!-- Leadership — Large Cards -->
-    <div class="team-leaders">
-      <!-- President -->
-      <a href="https://abdulrahmanfarhan2004.github.io/protofolio/" style="text-decoration:none">
-        <div class="leader-card card reveal" style="--leader-glow:rgba(79,195,247,.15)">
-          <div class="leader-avatar"
-            style="background:rgba(79,195,247,.1);border-color:rgba(79,195,247,.35);color:var(--blue)">AF</div>
-          <div class="leader-rank"
-            style="background:rgba(79,195,247,.12);border:1px solid rgba(79,195,247,.3);color:var(--blue)">👑 رئيس
-            النادي</div>
-          <div class="leader-name">عبدالرحمن فرحان</div>
-          <div class="leader-role">President & Founder</div>
-          <div class="leader-tags">
-            <span class="leader-tag"
-              style="background:rgba(79,195,247,.1);border:1px solid rgba(79,195,247,.2);color:var(--blue)">Java
-              Expert</span>
-            <span class="leader-tag"
-              style="background:rgba(79,195,247,.1);border:1px solid rgba(79,195,247,.2);color:var(--blue)">Enterprise
-              Arch</span>
-          </div>
+    <!-- President — Full Row -->
+    <div style="margin-bottom:24px">
+      <div class="leader-card card reveal" style="--leader-glow:rgba(79,195,247,.15);max-width:600px;margin:0 auto;text-align:center">
+        <div class="leader-avatar"
+          style="background:rgba(79,195,247,.1);border-color:rgba(79,195,247,.35);color:var(--blue);margin:0 auto 16px">AF</div>
+        <div class="leader-rank"
+          style="background:rgba(79,195,247,.12);border:1px solid rgba(79,195,247,.3);color:var(--blue);display:inline-block;margin-bottom:12px">👑 رئيس
+          النادي</div>
+        <div class="leader-name">عبدالرحمن فرحان</div>
+        <div class="leader-role">President & Founder</div>
+        <div class="leader-tags" style="justify-content:center;margin-bottom:20px">
+          <span class="leader-tag"
+            style="background:rgba(79,195,247,.1);border:1px solid rgba(79,195,247,.2);color:var(--blue)">Java
+            Expert</span>
+          <span class="leader-tag"
+            style="background:rgba(79,195,247,.1);border:1px solid rgba(79,195,247,.2);color:var(--blue)">Enterprise
+            Arch</span>
         </div>
-      </a>
-      <!-- Vice President -->
+        <!-- Social Links -->
+        <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
+          <a href="https://abdulrahmanfarhan2004.github.io/protofolio/" target="_blank"
+            style="display:inline-flex;align-items:center;gap:6px;padding:8px 16px;border-radius:9999px;background:rgba(79,195,247,.1);border:1px solid rgba(79,195,247,.3);color:var(--blue);font-size:.75rem;font-weight:600;font-family:'JetBrains Mono',monospace;transition:all .25s"
+            onmouseover="this.style.background='rgba(79,195,247,.2)'" onmouseout="this.style.background='rgba(79,195,247,.1)'">
+            🌐 الموقع الرسمي
+          </a>
+          <a href="https://www.udemy.com/user/abdulrahman-farhan/" target="_blank"
+            style="display:inline-flex;align-items:center;gap:6px;padding:8px 16px;border-radius:9999px;background:rgba(162,89,255,.1);border:1px solid rgba(162,89,255,.3);color:var(--pur);font-size:.75rem;font-weight:600;font-family:'JetBrains Mono',monospace;transition:all .25s"
+            onmouseover="this.style.background='rgba(162,89,255,.2)'" onmouseout="this.style.background='rgba(162,89,255,.1)'">
+            🎓 Udemy
+          </a>
+          <a href="https://www.linkedin.com/in/abdulrahman-farhan/" target="_blank"
+            style="display:inline-flex;align-items:center;gap:6px;padding:8px 16px;border-radius:9999px;background:rgba(0,119,181,.12);border:1px solid rgba(0,119,181,.35);color:#4FC3F7;font-size:.75rem;font-weight:600;font-family:'JetBrains Mono',monospace;transition:all .25s"
+            onmouseover="this.style.background='rgba(0,119,181,.22)'" onmouseout="this.style.background='rgba(0,119,181,.12)'">
+            💼 LinkedIn
+          </a>
+          <a href="https://www.youtube.com/@AbdulrahmanFarhan" target="_blank"
+            style="display:inline-flex;align-items:center;gap:6px;padding:8px 16px;border-radius:9999px;background:rgba(255,0,0,.1);border:1px solid rgba(255,0,0,.3);color:#ff5252;font-size:.75rem;font-weight:600;font-family:'JetBrains Mono',monospace;transition:all .25s"
+            onmouseover="this.style.background='rgba(255,0,0,.2)'" onmouseout="this.style.background='rgba(255,0,0,.1)'">
+            ▶ YouTube
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="team-leaders" style="grid-template-columns:1fr;max-width:400px;margin:0 auto">
       <div class="leader-card card reveal reveal-d1" style="--leader-glow:rgba(255,107,53,.12)">
         <div class="leader-avatar"
           style="background:rgba(255,107,53,.1);border-color:rgba(255,107,53,.35);color:var(--jo)">HR</div>
