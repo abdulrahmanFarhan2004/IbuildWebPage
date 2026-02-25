@@ -1271,24 +1271,24 @@
     /* OOP VIDEO CARDS */
     .vid-lessons-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 22px;
-      max-width: 960px;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      max-width: 1280px;
       margin: 0 auto
     }
 
     .vid-card {
       background: var(--gb);
       border: 1px solid var(--gbb);
-      border-radius: 18px;
+      border-radius: 12px;
       overflow: hidden;
       display: block;
       transition: transform .35s var(--e1), box-shadow .35s, border-color .35s
     }
 
     .vid-card:hover {
-      transform: translateY(-8px) scale(1.01);
-      box-shadow: 0 24px 60px rgba(0, 0, 0, .65), 0 0 0 1px rgba(255, 107, 53, .3);
+      transform: translateY(-6px) scale(1.02);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, .65), 0 0 0 1px rgba(255, 107, 53, .3);
       border-color: rgba(255, 107, 53, .35)
     }
 
@@ -1297,7 +1297,8 @@
       width: 100%;
       aspect-ratio: 16/9;
       overflow: hidden;
-      background: #0D1117
+      background: #0D1117;
+      border-radius: 12px 12px 0 0
     }
 
     .vid-thumb-wrap img {
@@ -1319,49 +1320,53 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      background: rgba(0, 0, 0, .2);
+      background: rgba(0, 0, 0, .15);
       transition: background .3s
     }
 
     .vid-card:hover .vid-play {
-      background: rgba(0, 0, 0, .1)
+      background: rgba(0, 0, 0, .05)
     }
 
     .vid-play-btn {
-      width: 54px;
-      height: 54px;
+      width: 40px;
+      height: 40px;
       border-radius: 50%;
       background: rgba(255, 107, 53, .92);
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 0 0 8px rgba(255, 107, 53, .2), 0 8px 30px rgba(255, 107, 53, .5);
-      transition: transform .3s var(--e2), box-shadow .3s
+      box-shadow: 0 0 0 6px rgba(255, 107, 53, .2), 0 6px 22px rgba(255, 107, 53, .5);
+      transition: transform .3s var(--e2), box-shadow .3s;
+      opacity: 0;
+      transform: scale(.85);
+      transition: opacity .3s, transform .3s var(--e2), box-shadow .3s
     }
 
     .vid-card:hover .vid-play-btn {
-      transform: scale(1.15);
-      box-shadow: 0 0 0 14px rgba(255, 107, 53, .15), 0 12px 40px rgba(255, 107, 53, .65)
+      opacity: 1;
+      transform: scale(1);
+      box-shadow: 0 0 0 10px rgba(255, 107, 53, .15), 0 10px 34px rgba(255, 107, 53, .65)
     }
 
     .vid-play-btn svg {
-      width: 22px;
-      height: 22px;
+      width: 16px;
+      height: 16px;
       fill: #fff;
-      margin-left: 3px
+      margin-left: 2px
     }
 
     .vid-num-badge {
       position: absolute;
-      top: 12px;
-      right: 12px;
-      background: rgba(6, 10, 15, .75);
+      top: 8px;
+      right: 8px;
+      background: rgba(6, 10, 15, .82);
       backdrop-filter: blur(10px);
       border: 1px solid rgba(255, 107, 53, .3);
-      border-radius: 8px;
-      padding: 4px 10px;
+      border-radius: 6px;
+      padding: 3px 8px;
       font-family: 'JetBrains Mono', monospace;
-      font-size: .68rem;
+      font-size: .6rem;
       font-weight: 700;
       color: var(--jo2);
       letter-spacing: .06em
@@ -1385,42 +1390,50 @@
     }
 
     .vid-body {
-      padding: 20px 22px 22px
+      padding: 12px 14px 16px
     }
 
     .vid-lesson-label {
       font-family: 'JetBrains Mono', monospace;
-      font-size: .62rem;
+      font-size: .55rem;
       color: var(--jo);
       letter-spacing: .12em;
       text-transform: uppercase;
-      margin-bottom: 8px;
+      margin-bottom: 5px;
       opacity: .8
     }
 
     .vid-title {
       font-family: 'Cinzel', serif;
-      font-size: .9rem;
+      font-size: .78rem;
       font-weight: 700;
       color: #fff;
       line-height: 1.4;
-      margin-bottom: 10px;
-      letter-spacing: .03em
+      margin-bottom: 6px;
+      letter-spacing: .02em;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden
     }
 
     .vid-desc {
-      font-size: .8rem;
+      font-size: .72rem;
       color: var(--tm);
-      line-height: 1.75
+      line-height: 1.65;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden
     }
 
     .vid-watch-row {
       display: flex;
       align-items: center;
-      gap: 6px;
-      margin-top: 14px;
+      gap: 5px;
+      margin-top: 10px;
       font-family: 'JetBrains Mono', monospace;
-      font-size: .68rem;
+      font-size: .6rem;
       color: var(--jo2);
       opacity: 0;
       transform: translateX(6px);
@@ -1433,9 +1446,51 @@
     }
 
     .vid-watch-row svg {
-      width: 12px;
-      height: 12px;
+      width: 10px;
+      height: 10px;
       fill: var(--jo2)
+    }
+
+    @media(max-width:1100px) {
+      .vid-lessons-grid { grid-template-columns: repeat(3, 1fr) }
+    }
+    @media(max-width:760px) {
+      .vid-lessons-grid { grid-template-columns: repeat(2, 1fr) }
+    }
+    @media(max-width:480px) {
+      .vid-lessons-grid { grid-template-columns: 1fr }
+    }
+
+    /* COMING SOON VIDEO CARDS */
+    .vid-card.vid-soon {
+      opacity: .55;
+      cursor: default;
+      pointer-events: none;
+    }
+    .vid-card.vid-soon:hover {
+      transform: none;
+      box-shadow: var(--sh);
+      border-color: var(--gbb);
+    }
+    .vid-soon-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(6,10,15,.55);
+      backdrop-filter: blur(3px);
+    }
+    .vid-soon-badge {
+      padding: 7px 18px;
+      border-radius: 9999px;
+      background: rgba(6,10,15,.8);
+      border: 1px solid rgba(255,255,255,.15);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: .7rem;
+      font-weight: 700;
+      color: var(--tm);
+      letter-spacing: .1em;
     }
 
     /* JOIN */
@@ -2021,7 +2076,7 @@
   </section>
 
   <!-- OOP DOCS -->
-  <section class="section" id="oop-docs" style="padding-top:20px">
+  <section class="section" id="oop-docs" style="padding-top:20px;max-width:1400px;margin:0 auto">
     <div class="chip chip-cyan reveal">// Object Oriented Programming</div>
     <h2 class="section-h reveal">Object Oriented Programming <span class="hl-cyan">as it should be</span></h2>
     <p class="section-p reveal" style="max-width:620px;margin:0 auto 56px">ملخص شامل للإنجازات والمفاهيم التي تم تغطيتها
@@ -2098,6 +2153,102 @@
           <div class="vid-title">التجريد والواجهات</div>
           <div class="vid-desc">الارتقاء بالتصميم المعماري لفرض السلوكيات عبر الكلاسات المجردة والواجهات.</div>
           <div class="vid-watch-row"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>اضغط لمشاهدة الفيديو ←</div>
+        </div>
+      </div>
+      <!-- Lesson 07 — COMING SOON -->
+      <div class="vid-card vid-soon reveal">
+        <div class="vid-thumb-wrap" style="background:linear-gradient(135deg,#0a1020,#1a2332)">
+          <div class="vid-soon-overlay"><span class="vid-soon-badge">⏳ قريباً</span></div>
+          <div class="vid-num-badge">07</div>
+        </div>
+        <div class="vid-body">
+          <div class="vid-lesson-label">// Lesson 07</div>
+          <div class="vid-title">مبادئ SOLID</div>
+          <div class="vid-desc">مبادئ SOLID الخمسة للتصميم البرمجي — أساس كتابة كود قابل للتوسع والصيانة.</div>
+        </div>
+      </div>
+      <!-- Lesson 08 — COMING SOON -->
+      <div class="vid-card vid-soon reveal reveal-d1">
+        <div class="vid-thumb-wrap" style="background:linear-gradient(135deg,#0a1020,#1a2332)">
+          <div class="vid-soon-overlay"><span class="vid-soon-badge">⏳ قريباً</span></div>
+          <div class="vid-num-badge">08</div>
+        </div>
+        <div class="vid-body">
+          <div class="vid-lesson-label">// Lesson 08</div>
+          <div class="vid-title">Clean Code</div>
+          <div class="vid-desc">كتابة الكود النظيف (Clean Code) وقواعد التسمية والدوال بأسلوب احترافي.</div>
+        </div>
+      </div>
+      <!-- Lesson 09 — COMING SOON -->
+      <div class="vid-card vid-soon reveal reveal-d2">
+        <div class="vid-thumb-wrap" style="background:linear-gradient(135deg,#0a1020,#1a2332)">
+          <div class="vid-soon-overlay"><span class="vid-soon-badge">⏳ قريباً</span></div>
+          <div class="vid-num-badge">09</div>
+        </div>
+        <div class="vid-body">
+          <div class="vid-lesson-label">// Lesson 09</div>
+          <div class="vid-title">Creational Patterns</div>
+          <div class="vid-desc">الأنماط الإنشائية (Creational Patterns): Singleton & Factory — حلول لإنشاء الكائنات.</div>
+        </div>
+      </div>
+      <!-- Lesson 10 — COMING SOON -->
+      <div class="vid-card vid-soon reveal">
+        <div class="vid-thumb-wrap" style="background:linear-gradient(135deg,#0a1020,#1a2332)">
+          <div class="vid-soon-overlay"><span class="vid-soon-badge">⏳ قريباً</span></div>
+          <div class="vid-num-badge">10</div>
+        </div>
+        <div class="vid-body">
+          <div class="vid-lesson-label">// Lesson 10</div>
+          <div class="vid-title">Observer & Strategy</div>
+          <div class="vid-desc">الأنماط الهيكلية والسلوكية: Observer & Strategy Patterns في التطبيقات الحقيقية.</div>
+        </div>
+      </div>
+      <!-- Lesson 11 — COMING SOON -->
+      <div class="vid-card vid-soon reveal reveal-d1">
+        <div class="vid-thumb-wrap" style="background:linear-gradient(135deg,#0a1020,#1a2332)">
+          <div class="vid-soon-overlay"><span class="vid-soon-badge">⏳ قريباً</span></div>
+          <div class="vid-num-badge">11</div>
+        </div>
+        <div class="vid-body">
+          <div class="vid-lesson-label">// Lesson 11</div>
+          <div class="vid-title">JDBC & DAO Pattern</div>
+          <div class="vid-desc">الاتصال بقواعد البيانات (JDBC) وبناء طبقة الوصول للبيانات باستخدام نمط الـ DAO.</div>
+        </div>
+      </div>
+      <!-- Lesson 12 — COMING SOON -->
+      <div class="vid-card vid-soon reveal reveal-d2">
+        <div class="vid-thumb-wrap" style="background:linear-gradient(135deg,#0a1020,#1a2332)">
+          <div class="vid-soon-overlay"><span class="vid-soon-badge">⏳ قريباً</span></div>
+          <div class="vid-num-badge">12</div>
+        </div>
+        <div class="vid-body">
+          <div class="vid-lesson-label">// Lesson 12</div>
+          <div class="vid-title">MVC Architecture</div>
+          <div class="vid-desc">هندسة البرمجيات ومعمارية الـ MVC — تنظيم التطبيقات بأسلوب احترافي وقابل للتوسع.</div>
+        </div>
+      </div>
+      <!-- Lesson 13 — COMING SOON -->
+      <div class="vid-card vid-soon reveal reveal-d1">
+        <div class="vid-thumb-wrap" style="background:linear-gradient(135deg,#0a1020,#1a2332)">
+          <div class="vid-soon-overlay"><span class="vid-soon-badge">⏳ قريباً</span></div>
+          <div class="vid-num-badge">13</div>
+        </div>
+        <div class="vid-body">
+          <div class="vid-lesson-label">// Lesson 13</div>
+          <div class="vid-title">Exceptions & JUnit</div>
+          <div class="vid-desc">معالجة الأخطاء (Exceptions) واختبار الكود باستخدام JUnit لضمان جودة البرمجيات.</div>
+        </div>
+      </div>
+      <!-- Lesson 14 — COMING SOON -->
+      <div class="vid-card vid-soon reveal">
+        <div class="vid-thumb-wrap" style="background:linear-gradient(135deg,#0a1020,#1a2332)">
+          <div class="vid-soon-overlay"><span class="vid-soon-badge">⏳ قريباً</span></div>
+          <div class="vid-num-badge">14</div>
+        </div>
+        <div class="vid-body">
+          <div class="vid-lesson-label">// Lesson 14</div>
+          <div class="vid-title">Java Swing For Desktop apps</div>
+          <div class="vid-desc">بناء واجهة المستخدم (GUI) باستخدام Swing.</div>
         </div>
       </div>
     </div>
